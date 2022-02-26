@@ -1,0 +1,37 @@
+<%= form_with(model: pelicula) do |form| %>
+  <% if pelicula.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pelicula.errors.count, "error") %> prohibited this pelicula from being saved:</h2>
+
+      <ul>
+        <% pelicula.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :titulo, style: "display: block" %>
+    <%= form.text_field :titulo %>
+  </div>
+
+  <div>
+    <%= form.label :fechacreacion, style: "display: block" %>
+    <%= form.date_field :fechacreacion %>
+  </div>
+
+  <div>
+    <%= form.label :calificacion, style: "display: block" %>
+    <%= form.number_field :calificacion %>
+  </div>
+
+  <div>
+    <%= form.label :genero_id, style: "display: block" %>
+    <%= form.text_field :genero_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
